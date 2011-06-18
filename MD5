@@ -1,0 +1,9 @@
+f5ce961977119fd841e12d74ea72b6e6 *DESCRIPTION
+9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
+b967fde23a90a2062fda6942e986152a *R/FDRplot.R
+f131b9a8da70f478552e156f8e10e5b4 *R/fdrTbl.R
+b8f4b07f4b8235536885632a13a3954f *R/fdr_od.R
+a4f6e36889a4965e8283c6596fb1914f *man/FDRplot.Rd
+ea7816bfb685df4c651b5535fbee7e1d *man/fdrTbl.Rd
+55c46645d7cca30d31c0fd29fa23cc38 *man/fdr_od.Rd
+6e35c488ba17c564e283e1e685114f30 *man/fdrci-package.Rd

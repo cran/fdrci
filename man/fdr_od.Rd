@@ -1,0 +1,88 @@
+\name{fdr_od}
+\alias{fdr_od}
+\title{
+  Permutation-Based FDR and Confidence Interval
+}
+\description{
+  This function can be used to estimate FDR, corresponding confidence interval, and pi0, the proportion of true null hypotheses, given a selected significance threshold, and results from permuted data.
+}
+\usage{
+fdr_od(obsp, permp, pnm, ntests, thres, cl)
+}
+
+\arguments{
+  \item{obsp}{
+     observed vector of p-values.
+}
+  \item{permp}{
+     list of dataframes that include a column of permutation p-values (or statistics) in each. The length of the list permp = number of permutations.
+}
+  \item{pnm}{
+     name of column in each list component dataframe that includes p-values (or statistics).
+}
+  \item{ntests}{
+     total number of observed tests, which is usually the same as the length of obsp and the number of rows in each permp dataframe. However, this may not be the case if results were filtered by a p-value threshold or statistic threshold. If filtering was conducted then thres must be smaller (more extreme) than the filtering criterion.
+}
+  \item{thres}{
+     significance threshold.
+}
+  \item{cl}{
+     confidence level (usually .95).
+}
+}
+\details{
+  If a very large number of tests are conducted, it may be useful to filter results, that is, save only results of those tests that meet some relaxed nominal significance threshold. This alleviates the need to record results for tests that are clearly non-significant. Results from fdr_od() are valid as long as thres < the relaxed nomimal significance threshold for both observed and permuted results. It is not necessary for the input to fdr_od() to be p-values, however, fdr_od() is designed for statistics in which smaller values are more extreme than larger values as is the case for p-values. Therefore, if raw statistics are used, then a transformation may be necessary to insure that smaller values are more likely associated with false null hypotheses than larger values.
+}
+\value{
+  A list which includes:
+  \item{FDR }{FDR point estimate}
+  \item{ll }{lower confidence limit}
+  \item{ul }{upper confidence limit}
+  \item{pi0 }{proportion of true null hypotheses}
+  \item{c1 }{overdispersion parameter}
+  \item{ro }{observed number of positive tests}
+  \item{vp1 }{total number of positive tests summed across all permuted result sets}
+}
+\references{
+ Millstein J, Volfson D, Lamb JR, Friend S, Dai H, Schadt EE, Bergh J. 2010. Permutation-based yet computationally parsimonious FDR point and confidence interval estimators. In JSM Proceedings, ENAR. Alexandria, VA: American Statistical Association. 4184-4197.
+}
+\author{
+  Joshua Millstein
+}
+
+\examples{
+nrow_=100
+ncol_=100
+X = as.data.frame(matrix(rnorm(nrow_*ncol_),nrow=nrow_,ncol=ncol_))
+Y = as.data.frame(matrix(rnorm(nrow_*ncol_),nrow=nrow_,ncol=ncol_))
+nperm = 10
+
+myanalysis = function(X,Y){
+	ntests = ncol(X)
+	rslts = as.data.frame(matrix(NA,nrow=ntests,ncol=2))
+	names(rslts) = c("ID","pvalue")
+	rslts[,"ID"] = 1:ntests
+	for(i in 1:ntests){
+		fit = cor.test(X[,i],Y[,i],na.action="na.exclude",
+			alternative="two.sided",method="pearson")
+		rslts[i,"pvalue"] = fit$p.value
+	}
+	return(rslts)
+} # End myanalysis
+
+# Generate observed results
+obs = myanalysis(X,Y)
+
+## Generate permuted results
+perml = vector('list',nperm)
+for(p_ in 1:nperm){
+	X1 = X[order(runif(ncol_)),]
+	perml[[p_]] = myanalysis(X1,Y)
+}
+
+## FDR results
+fdr_od(obs$pvalue,perml,"pvalue",ncol_,.05,.95)
+}
+
+\keyword{ htest }
+\keyword{ nonparametric }
