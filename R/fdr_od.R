@@ -1,5 +1,5 @@
 fdr_od <-
-function(obsp,permp,pnm,ntests,thres,cl){
+function(obsp,permp,pnm,ntests,thres,cl=.95,c1=NA){
       z_ = qnorm(1 - (1 - cl)/2) # two-tailed test
 	pcount = rep(NA,length(permp))
 	for(p_ in 1:length(permp)){
@@ -10,7 +10,10 @@ function(obsp,permp,pnm,ntests,thres,cl){
 	p = mean(pcount,na.rm=TRUE)/ntests # estimate p
 	e_vr = ntests*p*(1 - p)
 	o_vr = var(pcount,na.rm=TRUE)
-	c1 = o_vr / e_vr
+	if( is.na( c1 ) ) {
+	   c1 = o_vr / e_vr
+	   if( !is.na( c1 ) ) if( c1 < 1) c1 = 1
+	} 
 
 	nperm = length(permp)
 	mo = ntests

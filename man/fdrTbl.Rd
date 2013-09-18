@@ -8,7 +8,7 @@
    Computes FDR estimates and confidence intervals for a sequence of potential significance thresholds.
 }
 \usage{
-   fdrTbl(obs_vec, perm_list, pname, ntests, lowerbound, upperbound, incr=.1)
+   fdrTbl(obs_vec, perm_list, pname, ntests, lowerbound, upperbound, incr=.1,cl=.95,c1=NA)
 }
 
 \arguments{
@@ -33,9 +33,15 @@
   \item{incr}{
   value by which to increment the sequence from lowerbound to upperbound on a -log10(p-value) scale. Default is 0.1.
 }
+  \item{cl}{
+     confidence level (default is .95).
+}
+ \item{c1}{
+     overdispersion parameter. If this parameter is not specified (default initial value is NA), then the parameter is estimated from the data. If all tests are known to be independent, then this parameter should be set to 1.
+}
 }
 \details{
-   Output from fdrTbl() can be used for FDRplot() input.
+   fdrTbl calls fdr_od. Output from fdrTbl() can be used for FDRplot() input.
 }
 \value{
    A dataframe is returned where rows correspond to p-value thresholds in the sequence from lowerbound to upperbound and columns are:
@@ -50,7 +56,7 @@
   \item{Sp }{total number of positive tests summed across all permuted result sets}
 }
 \references{
-   Millstein J, Volfson D, Lamb JR, Friend S, Dai H, Schadt EE, Bergh J. 2010. Permutation-based yet computationally parsimonious FDR point and confidence interval estimators. In JSM Proceedings, ENAR. Alexandria, VA: American Statistical Association. 4184-4197.
+ Millstein J, Volfson D. 2013. Computationally efficient permutation-based confidence interval estimation for tail-area FDR. Frontiers in Genetics | Statistical Genetics and Methodology 4(179):1-11.
 }
 \author{
    Joshua Millstein
@@ -58,9 +64,6 @@
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
 
 nrow_=100
@@ -93,7 +96,7 @@ for(p_ in 1:nperm){
 }
 
 ## FDR results table
-fdrTbl(obs$pvalue,perml,"pvalue",ncol_,0,3)
+fdrTbl(obs$pvalue,perml,"pvalue",ncol_,1,2)
 }
 
 \keyword{ htest }

@@ -33,7 +33,7 @@ FDRplot(plotdat, lowerbound, upperbound, mn, lpos = "bottomleft", outfile = FALS
 }
 
 \references{
- Millstein J, Volfson D, Lamb JR, Friend S, Dai H, Schadt EE, Bergh J. 2010. Permutation-based yet computationally parsimonious FDR point and confidence interval estimators. In JSM Proceedings, ENAR. Alexandria, VA: American Statistical Association. 4184-4197.
+ Millstein J, Volfson D. 2013. Computationally efficient permutation-based confidence interval estimation for tail-area FDR. Frontiers in Genetics | Statistical Genetics and Methodology 4(179):1-11.
 }
 \author{
 Joshua Millstein

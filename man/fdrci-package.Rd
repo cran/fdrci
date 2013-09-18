@@ -14,8 +14,8 @@ which is estimated from the permuted data.
 \tabular{ll}{
 Package: \tab fdrci\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2011-06-18\cr
+Version: \tab 2.0\cr
+Date: \tab 2013-09-18\cr
 License: \tab Artistic-2.0\cr
 LazyLoad: \tab yes\cr
 }
@@ -36,8 +36,7 @@ Maintainer: Joshua Millstein <millsteinjoshua@gmail.com>
 Joshua Millstein
 }
 \references{
-Millstein J, Volfson D, Lamb JR, Friend S, Dai H, Schadt EE, Bergh J. 2010. Permutation-based yet computationally parsimonious
-FDR point and confidence interval estimators. In JSM Proceedings, ENAR. Alexandria, VA: American Statistical Association. 4184-4197.
+ Millstein J, Volfson D. 2013. Computationally efficient permutation-based confidence interval estimation for tail-area FDR. Frontiers in Genetics | Statistical Genetics and Methodology 4(179):1-11.
 }
 
 \keyword{ htest }

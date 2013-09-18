@@ -7,7 +7,7 @@
   This function can be used to estimate FDR, corresponding confidence interval, and pi0, the proportion of true null hypotheses, given a selected significance threshold, and results from permuted data.
 }
 \usage{
-fdr_od(obsp, permp, pnm, ntests, thres, cl)
+fdr_od(obsp, permp, pnm, ntests, thres, cl=.95, c1=NA)
 }
 
 \arguments{
@@ -27,7 +27,10 @@ fdr_od(obsp, permp, pnm, ntests, thres, cl)
      significance threshold.
 }
   \item{cl}{
-     confidence level (usually .95).
+     confidence level (default is .95).
+}
+ \item{c1}{
+     overdispersion parameter. If this parameter is not specified (default initial value is NA), then the parameter is estimated from the data. If all tests are known to be independent, then this parameter should be set to 1.
 }
 }
 \details{
@@ -44,7 +47,7 @@ fdr_od(obsp, permp, pnm, ntests, thres, cl)
   \item{vp1 }{total number of positive tests summed across all permuted result sets}
 }
 \references{
- Millstein J, Volfson D, Lamb JR, Friend S, Dai H, Schadt EE, Bergh J. 2010. Permutation-based yet computationally parsimonious FDR point and confidence interval estimators. In JSM Proceedings, ENAR. Alexandria, VA: American Statistical Association. 4184-4197.
+ Millstein J, Volfson D. 2013. Computationally efficient permutation-based confidence interval estimation for tail-area FDR. Frontiers in Genetics | Statistical Genetics and Methodology 4(179):1-11.
 }
 \author{
   Joshua Millstein
@@ -81,7 +84,7 @@ for(p_ in 1:nperm){
 }
 
 ## FDR results
-fdr_od(obs$pvalue,perml,"pvalue",ncol_,.05,.95)
+fdr_od(obs$pvalue,perml,"pvalue",ncol_,.05)
 }
 
 \keyword{ htest }
