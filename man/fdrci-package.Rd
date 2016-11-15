@@ -3,7 +3,7 @@
 \alias{fdrci}
 \docType{package}
 \title{
-Permutation-based FDR Point and Confidence Interval Estimation
+Permutation-Based FDR Point and Confidence Interval Estimation
 }
 \description{
 FDR functions for permutation-based estimators, including pi0 as well as FDR confidence intervals. 
@@ -14,8 +14,8 @@ which is estimated from the permuted data.
 \tabular{ll}{
 Package: \tab fdrci\cr
 Type: \tab Package\cr
-Version: \tab 2.0\cr
-Date: \tab 2013-09-18\cr
+Version: \tab 2.1\cr
+Date: \tab 2016-11-14\cr
 License: \tab Artistic-2.0\cr
 LazyLoad: \tab yes\cr
 }

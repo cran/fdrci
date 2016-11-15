@@ -1,10 +1,10 @@
-5f46d878320bfdf15b1eb624ecb18360 *DESCRIPTION
-9fdfeb11f7ddba6f3aab9aaa6b1ac5dd *NAMESPACE
-b967fde23a90a2062fda6942e986152a *R/FDRplot.R
+1c229cf3feace1da74ffc47aec7e8442 *DESCRIPTION
+4743aa4ed3aa2feff94babb653f0a976 *NAMESPACE
+884d8b9c8e21739b26ec68341ea31545 *R/FDRplot.R
 e6a1fc9c4baa12a80956fb2b056280b2 *R/fdrTbl.R
-d5bf7c640f7b26c1f842978d9a5cabd1 *R/fdr_od.R
+e6658e4dedb0b5475bf3e20aa167ebff *R/fdr_od.R
 d0f51e4cd83a86c9467aaef8f68f92aa *inst/CITATION
 6f6352ed1803ab81aaaf7d681732251d *man/FDRplot.Rd
 55c83e6e2a925281ba837751f01b0d5a *man/fdrTbl.Rd
-ef3bd11a11de9fec1fc2e53950d1f2c6 *man/fdr_od.Rd
-57e3dd8f8c8e4f60316d678fecb1b139 *man/fdrci-package.Rd
+b0b6f2b9e5600300f31e31b7bc4f37f0 *man/fdr_od.Rd
+018765c3cf621d12447dcabe02515f18 *man/fdrci-package.Rd

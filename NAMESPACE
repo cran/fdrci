@@ -3,3 +3,7 @@
 
 # Export all names
 exportPattern(".")
+
+  importFrom("grDevices", "dev.off", "pdf")
+  importFrom("graphics", "legend", "par", "plot", "points", "text")
+  importFrom("stats", "qnorm", "var")

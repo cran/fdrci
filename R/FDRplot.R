@@ -10,6 +10,7 @@ function(plotdat,lowerbound,upperbound,mn,lpos = "bottomleft",outfile=FALSE){
 	if(sum(!is.na(plotdat[,"ul"]))) yul = max(plotdat[,"ul"],na.rm=TRUE)
 	if(abs(yul) > 1) yul = 1
 	tpos = yul * 3 / 4
+	par( mar=c( 5,5,3,2) ) # added 10/14/16
 	plot(plotdat$threshold,plotdat$fdr,xlim=c(lowerbound,upperbound),ylim=c(0,yul),
 		col='blue',type='l',lty=1,main=mn,
 		xlab=expression(paste('p-value cutoff (-',log[10],'(p-value))')),
@@ -18,7 +19,6 @@ function(plotdat,lowerbound,upperbound,mn,lpos = "bottomleft",outfile=FALSE){
 	points(plotdat$threshold,plotdat$ll,col='red',type='l',lty=2)
 	legend(lpos,legend=c(expression(hat(FDR)),"Upper Limit","Lower Limit"),
 		col=c("blue","red","red"),cex=.8,lty=c(1,2,2))
-	#text(3.5,.37,"FDR = .11, CI = (0.07,0.17)",cex=1.1,col='brown',font=2)
 	text(plotdat$threshold,tpos,plotdat$S,cex=.8,col='green',srt=90)
 	if(outfile != FALSE) dev.off()
 	return("")
