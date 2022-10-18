@@ -1,8 +1,8 @@
 Package: fdrci
 Type: Package
 Title: Permutation-Based FDR Point and Confidence Interval Estimation
-Version: 2.3
-Date: 2022-6-1
+Version: 2.4
+Date: 2022-10-17
 Authors@R: person(
   "Joshua", "Millstein", email = "joshua.millstein@usc.edu",
   role = c("aut", "cre"))
@@ -18,8 +18,8 @@ RoxygenNote: 7.1.2
 Suggests: rmarkdown, knitr, GEOquery, dplyr, foreach
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-06-04 23:47:51 UTC; joshuamillstein
+Packaged: 2022-10-17 23:47:06 UTC; joshuamillstein
 Author: Joshua Millstein [aut, cre]
 Maintainer: Joshua Millstein <joshua.millstein@usc.edu>
 Repository: CRAN
-Date/Publication: 2022-06-07 22:40:02 UTC
+Date/Publication: 2022-10-18 02:12:32 UTC
